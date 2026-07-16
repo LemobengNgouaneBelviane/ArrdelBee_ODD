@@ -1,0 +1,948 @@
+{
+  "sociale": {
+    "label": "Sociale",
+    "order": 1,
+    "description": "Répondre aux besoins sociaux et aux aspirations individuelles et collectives, aux besoins de santé, de bien-être et de qualité de vie.",
+    "themes": [
+      {
+        "number": 1,
+        "label": "Lutte contre la pauvreté",
+        "objectives": [
+          {
+            "code": "1.1",
+            "label": "Mettre en place des actions soutenant les plus démunis et les plus vulnérables à l'intérieur des communautés locales"
+          },
+          {
+            "code": "1.2",
+            "label": "Mettre en place des actions soutenant les plus démunis et les plus vulnérables au niveau national"
+          },
+          {
+            "code": "1.3",
+            "label": "Contribuer aux actions visant à réduire la pauvreté au niveau supranational"
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "label": "Eau",
+        "objectives": [
+          {
+            "code": "2.1",
+            "label": "Assurer un approvisionnement en eau potable à tous"
+          },
+          {
+            "code": "2.2",
+            "label": "Assurer la qualité adéquate pour l'approvisionnement en eau selon les usages"
+          },
+          {
+            "code": "2.3",
+            "label": "Assurer l’accès à des services d’assainissement et d’hygiène adéquats"
+          },
+          {
+            "code": "2.4",
+            "label": "Renforcer la participation de la population à la maîtrise de l’eau et à l’amélioration de la gestion de l’eau"
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "label": "Alimentation",
+        "objectives": [
+          {
+            "code": "3.1",
+            "label": "Assurer l'accès à la nourriture"
+          },
+          {
+            "code": "3.2",
+            "label": "Assurer la qualité nutritionnelle des aliments"
+          },
+          {
+            "code": "3.3",
+            "label": "Assurer la sécurité alimentaire"
+          },
+          {
+            "code": "3.4",
+            "label": "Favoriser la souveraineté alimentaire"
+          },
+          {
+            "code": "3.5",
+            "label": "Mettre en œuvre des pratiques agricoles et de pêcheries durables"
+          }
+        ]
+      },
+      {
+        "number": 4,
+        "label": "Santé",
+        "objectives": [
+          {
+            "code": "4.1",
+            "label": "Améliorer et maintenir l'état de santé des populations"
+          },
+          {
+            "code": "4.2",
+            "label": "Assurer l'accès aux services de santé"
+          },
+          {
+            "code": "4.3",
+            "label": "Promouvoir les actions préventives en santé, les environnements sains et l’adoption de saines habitudes de vie"
+          },
+          {
+            "code": "4.4",
+            "label": "Réduire les facteurs susceptibles de causer des problèmes de santé mentale"
+          },
+          {
+            "code": "4.5",
+            "label": "Répondre aux besoins spécifiques de santé maternelle et infantile"
+          },
+          {
+            "code": "4.6",
+            "label": "Réduire les nuisances"
+          }
+        ]
+      },
+      {
+        "number": 5,
+        "label": "Sécurité",
+        "objectives": [
+          {
+            "code": "5.1",
+            "label": "Créer un sentiment de sécurité"
+          },
+          {
+            "code": "5.2",
+            "label": "Assurer une sécurité effective"
+          },
+          {
+            "code": "5.3",
+            "label": "Assurer l'éducation de base à la sécurité"
+          }
+        ]
+      },
+      {
+        "number": 6,
+        "label": "Éducation",
+        "objectives": [
+          {
+            "code": "6.1",
+            "label": "Assurer l'accès à un système qui permet une éducation de qualité"
+          },
+          {
+            "code": "6.2",
+            "label": "Assurer une éducation de base fonctionnelle pour tous"
+          },
+          {
+            "code": "6.3",
+            "label": "Favoriser l'accès de chacun à son niveau d'éducation désiré"
+          },
+          {
+            "code": "6.4",
+            "label": "Permettre l'accès à une éducation et à une formation continue"
+          },
+          {
+            "code": "6.5",
+            "label": "Éduquer au développement durable et à la citoyenneté"
+          }
+        ]
+      },
+      {
+        "number": 7,
+        "label": "Collectivité et implication",
+        "objectives": [
+          {
+            "code": "7.1",
+            "label": "Promouvoir l'implication"
+          },
+          {
+            "code": "7.2",
+            "label": "Valoriser et reconnaitre l'accomplissement personnel et collectif"
+          },
+          {
+            "code": "7.3",
+            "label": "Favoriser la cohésion sociale"
+          },
+          {
+            "code": "7.4",
+            "label": "Favoriser la connectivité"
+          },
+          {
+            "code": "7.5",
+            "label": "Permettre le développement de l'estime de soi et de la confiance en soi"
+          },
+          {
+            "code": "7.6",
+            "label": "Améliorer l'autonomie et la résilience des collectivités"
+          }
+        ]
+      },
+      {
+        "number": 8,
+        "label": "Établissements humains",
+        "objectives": [
+          {
+            "code": "8.1",
+            "label": "Assurer l'accès au logement"
+          },
+          {
+            "code": "8.2",
+            "label": "Favoriser la mobilité durable"
+          },
+          {
+            "code": "8.3",
+            "label": "Aménager des infrastructures durables"
+          },
+          {
+            "code": "8.4",
+            "label": "Promouvoir des villes et des établissements humains durables"
+          },
+          {
+            "code": "8.5",
+            "label": "Sécuriser et fiabiliser le domaine foncier"
+          },
+          {
+            "code": "8.6",
+            "label": "Viser l’équité et la solidarité territoriale"
+          }
+        ]
+      },
+      {
+        "number": 9,
+        "label": "Genre",
+        "objectives": [
+          {
+            "code": "9.1",
+            "label": "Viser l'égalité des droits sans distinction des genres"
+          },
+          {
+            "code": "9.2",
+            "label": "Viser l'équité entre les genres"
+          },
+          {
+            "code": "9.3",
+            "label": "Autonomiser les femmes et les filles"
+          }
+        ]
+      }
+    ]
+  },
+  "ecologique": {
+    "label": "Écologique",
+    "order": 2,
+    "description": "Répondre aux besoins de qualité du milieu naturel et de pérennité des ressources, ainsi qu'à la redéfinition des relations humain-nature.",
+    "themes": [
+      {
+        "number": 1,
+        "label": "Écosystèmes",
+        "objectives": [
+          {
+            "code": "1.1",
+            "label": "Développer des connaissances sur les écosystèmes et sur les espèces qui en dépendent"
+          },
+          {
+            "code": "1.2",
+            "label": "Préserver les écosystèmes continentaux"
+          },
+          {
+            "code": "1.3",
+            "label": "Limiter la dégradation biologique, chimique et physique des sols"
+          },
+          {
+            "code": "1.4",
+            "label": "Lutter contre la désertification"
+          },
+          {
+            "code": "1.5",
+            "label": "Préserver les écosystèmes marins et littoraux"
+          },
+          {
+            "code": "1.6",
+            "label": "Fixer des objectifs de restauration des écosystèmes dégradés"
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "label": "Biodiversité",
+        "objectives": [
+          {
+            "code": "2.1",
+            "label": "Favoriser la protection de la biodiversité"
+          },
+          {
+            "code": "2.2",
+            "label": "Protéger les espèces rares, menacées et à statut précaire"
+          },
+          {
+            "code": "2.3",
+            "label": "Valoriser les espèces à valeur symbolique"
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "label": "Ressources",
+        "objectives": [
+          {
+            "code": "3.1",
+            "label": "Conserver les ressources essentielles au maintien de la vie dans les écosystèmes."
+          },
+          {
+            "code": "3.2",
+            "label": "Faire le choix des ressources de moindre impact"
+          },
+          {
+            "code": "3.3",
+            "label": "Planifier une utilisation judicieuse des ressources renouvelables"
+          },
+          {
+            "code": "3.4",
+            "label": "Planifier une utilisation judicieuse des ressources non-renouvelables"
+          },
+          {
+            "code": "3.5",
+            "label": "Optimiser les ressources en fin de vie"
+          }
+        ]
+      },
+      {
+        "number": 4,
+        "label": "Extrants",
+        "objectives": [
+          {
+            "code": "4.1",
+            "label": "Caractériser les extrants liquides, solides, et gazeux et les impacts liés à leur déversement dans l’environnement"
+          },
+          {
+            "code": "4.2",
+            "label": "Minimiser les extrants"
+          },
+          {
+            "code": "4.3",
+            "label": "Minimiser les impacts"
+          },
+          {
+            "code": "4.4",
+            "label": "Assurer une saine gestion des déchets dangereux"
+          },
+          {
+            "code": "4.5",
+            "label": "Limiter les émissions de polluants globaux"
+          }
+        ]
+      },
+      {
+        "number": 5,
+        "label": "Usages du territoire",
+        "objectives": [
+          {
+            "code": "5.1",
+            "label": "Optimiser l’utilisation du territoire"
+          },
+          {
+            "code": "5.2",
+            "label": "Limiter les conflits d'usages"
+          },
+          {
+            "code": "5.3",
+            "label": "Maintenir la diversité des paysages"
+          }
+        ]
+      },
+      {
+        "number": 6,
+        "label": "Changements climatiques",
+        "objectives": [
+          {
+            "code": "6.1",
+            "label": "Quantifier les émissions de gaz à effet de serre"
+          },
+          {
+            "code": "6.2",
+            "label": "Réduire les émissions des GES"
+          },
+          {
+            "code": "6.3",
+            "label": "Augmenter les puits de carbone"
+          },
+          {
+            "code": "6.4",
+            "label": "Compenser les émissions de gaz à effet de serre"
+          },
+          {
+            "code": "6.5",
+            "label": "Prévoir des mesures d’adaptation à la nouvelle donne climatique"
+          }
+        ]
+      }
+    ]
+  },
+  "economique": {
+    "label": "Économique",
+    "order": 3,
+    "description": "Répondre aux besoins matériels des individus et des collectivités, ainsi qu'à leur autonomisation financière.",
+    "themes": [
+      {
+        "number": 1,
+        "label": "Production responsable",
+        "objectives": [
+          {
+            "code": "1.1",
+            "label": "Produire des biens et services de qualité"
+          },
+          {
+            "code": "1.2",
+            "label": "S'assurer de l'adéquation entre les besoins et les biens et services produits"
+          },
+          {
+            "code": "1.3",
+            "label": "Favoriser l'éco-conception dans une perspective cycle de vie"
+          },
+          {
+            "code": "1.4",
+            "label": "Promouvoir une industrialisation durable"
+          },
+          {
+            "code": "1.5",
+            "label": "Appliquer la responsabilité élargie des producteurs"
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "label": "Consommation responsable",
+        "objectives": [
+          {
+            "code": "2.1",
+            "label": "Favoriser l'accès aux biens et services"
+          },
+          {
+            "code": "2.2",
+            "label": "Favoriser l’achat et la consommation responsables"
+          },
+          {
+            "code": "2.3",
+            "label": "Favoriser l'investissement responsable"
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "label": "Viabilité économique",
+        "objectives": [
+          {
+            "code": "3.1",
+            "label": "S’assurer de la viabilité économique"
+          },
+          {
+            "code": "3.2",
+            "label": "Favoriser les sources de financement responsables"
+          },
+          {
+            "code": "3.3",
+            "label": "Limiter les risques financiers"
+          },
+          {
+            "code": "3.4",
+            "label": "Limiter la rémunération du capital"
+          }
+        ]
+      },
+      {
+        "number": 4,
+        "label": "Travail",
+        "objectives": [
+          {
+            "code": "4.1",
+            "label": "Favoriser l'accès à une occupation"
+          },
+          {
+            "code": "4.2",
+            "label": "S'assurer d'une juste valeur pour le travail des personnes"
+          }
+        ]
+      },
+      {
+        "number": 5,
+        "label": "Richesses et prospérité",
+        "objectives": [
+          {
+            "code": "5.1",
+            "label": "Stimuler les échanges entre les personnes et les sociétés"
+          },
+          {
+            "code": "5.2",
+            "label": "Viser une croissance de la richesse"
+          },
+          {
+            "code": "5.3",
+            "label": "Instaurer des pratiques de tourisme durable"
+          },
+          {
+            "code": "5.4",
+            "label": "Limiter les possibilités de fuites de capitaux"
+          }
+        ]
+      },
+      {
+        "number": 6,
+        "label": "Énergie",
+        "objectives": [
+          {
+            "code": "6.1",
+            "label": "Assurer l'accès à des services énergétiques fiables à un coût abordable"
+          },
+          {
+            "code": "6.2",
+            "label": "Favoriser l'utilisation de l'énergie à moindre impact"
+          },
+          {
+            "code": "6.3",
+            "label": "Planifier une utilisation judicieuse de l'énergie"
+          }
+        ]
+      },
+      {
+        "number": 7,
+        "label": "Entreprenariat",
+        "objectives": [
+          {
+            "code": "7.1",
+            "label": "Développer une culture entrepreneuriale"
+          },
+          {
+            "code": "7.2",
+            "label": "Soutenir la capacité d’entreprendre"
+          },
+          {
+            "code": "7.3",
+            "label": "Assurer l'accès équitable aux moyens de production de la richesse"
+          }
+        ]
+      },
+      {
+        "number": 8,
+        "label": "Modèles économiques",
+        "objectives": [
+          {
+            "code": "8.1",
+            "label": "Éliminer les distorsions des modèles économiques"
+          },
+          {
+            "code": "8.2",
+            "label": "Valoriser l'économie sociale et solidaire"
+          },
+          {
+            "code": "8.3",
+            "label": "Maintenir ou intégrer les modèles économiques traditionnels à l’économie dominante"
+          },
+          {
+            "code": "8.4",
+            "label": "Soutenir les modèles économiques émergents et novateurs"
+          }
+        ]
+      }
+    ]
+  },
+  "culturelle": {
+    "label": "Culturelle",
+    "order": 4,
+    "description": "Répondre aux besoins d'affirmation, d'expression, de protection et de mise en valeur de la diversité des traits culturels.",
+    "themes": [
+      {
+        "number": 1,
+        "label": "Transmission du patrimoine culturel",
+        "objectives": [
+          {
+            "code": "1.1",
+            "label": "Favoriser l'expression individuelle, la liberté et le pluralisme des croyances, des opinions et des identités"
+          },
+          {
+            "code": "1.2",
+            "label": "Assurer la conservation, la restauration et la compensation du patrimoine culturel"
+          },
+          {
+            "code": "1.3",
+            "label": "Reconnaître les représentations culturelles de l'environnement"
+          },
+          {
+            "code": "1.4",
+            "label": "Développer la connaissance du passé et de l'histoire"
+          },
+          {
+            "code": "1.5",
+            "label": "Valoriser et soutenir la diversité linguistique"
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "label": "Pratiques culturelles et artistiques",
+        "objectives": [
+          {
+            "code": "2.1",
+            "label": "Encourager l'expression culturelle"
+          },
+          {
+            "code": "2.2",
+            "label": "Affirmer le caractère pluriel et évolutif de la culture"
+          },
+          {
+            "code": "2.3",
+            "label": "Reconnaitre l'importance des minorités et de leurs contributions à la société"
+          },
+          {
+            "code": "2.4",
+            "label": "Offrir un accès à la culture par l’éducation à tous les niveaux"
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "label": "Diversité culturelle",
+        "objectives": [
+          {
+            "code": "3.1",
+            "label": "Favoriser l'interculturalité"
+          },
+          {
+            "code": "3.2",
+            "label": "Assurer l'équité entre les cultures"
+          },
+          {
+            "code": "3.3",
+            "label": "Soutenir la diversité des expressions culturelles"
+          }
+        ]
+      },
+      {
+        "number": 4,
+        "label": "Contribution de la culture au développement",
+        "objectives": [
+          {
+            "code": "4.1",
+            "label": "Favoriser l'émergence d'une industrie culturelle génératrice d'emplois et de richesse"
+          },
+          {
+            "code": "4.2",
+            "label": "Rendre explicites les liens entre la culture, le développement, l’emploi et la prospérité économique"
+          },
+          {
+            "code": "4.3",
+            "label": "S'assurer d'un partage équitable des innovations issues d'acquis culturels ou de connaissances traditionnelles"
+          }
+        ]
+      }
+    ]
+  },
+  "ethique": {
+    "label": "Éthique",
+    "order": 5,
+    "description": "Répondre aux besoins d'équité, de cohérence et d'identification à des valeurs communes.",
+    "themes": [
+      {
+        "number": 1,
+        "label": "Responsabilité",
+        "objectives": [
+          {
+            "code": "1.1",
+            "label": "Agir de manière transparente et intègre"
+          },
+          {
+            "code": "1.2",
+            "label": "Appliquer le principe de précaution"
+          },
+          {
+            "code": "1.3",
+            "label": "Respecter les droits humains"
+          },
+          {
+            "code": "1.4",
+            "label": "Assumer sa responsabilité envers les humains, les autres vivants et le non vivant"
+          },
+          {
+            "code": "1.5",
+            "label": "Équilibrer la liberté individuelle et les responsabilités collectives"
+          },
+          {
+            "code": "1.6",
+            "label": "Favoriser l’adoption de modes de vie durables"
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "label": "Paix",
+        "objectives": [
+          {
+            "code": "2.1",
+            "label": "Promouvoir une culture de la paix et de la non-violence"
+          },
+          {
+            "code": "2.2",
+            "label": "Rechercher des solutions pacifiques aux conflits"
+          },
+          {
+            "code": "2.3",
+            "label": "Œuvrer à la réconciliation et à la reconstruction post-conflit"
+          },
+          {
+            "code": "2.4",
+            "label": "Favoriser le sentiment de justice"
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "label": "Bienveillance",
+        "objectives": [
+          {
+            "code": "3.1",
+            "label": "Améliorer l’accessibilité"
+          },
+          {
+            "code": "3.2",
+            "label": "Offrir des compensations aux personnes et collectivités affectées"
+          },
+          {
+            "code": "3.3",
+            "label": "Développer l'esprit communautaire et la solidarité"
+          },
+          {
+            "code": "3.4",
+            "label": "Faire preuve d’altérité"
+          }
+        ]
+      },
+      {
+        "number": 4,
+        "label": "Partage",
+        "objectives": [
+          {
+            "code": "4.1",
+            "label": "Optimiser les retombées"
+          },
+          {
+            "code": "4.2",
+            "label": "S'assurer d'un mécanisme de redistribution"
+          },
+          {
+            "code": "4.3",
+            "label": "Respecter les biens communs"
+          }
+        ]
+      },
+      {
+        "number": 5,
+        "label": "Démarche éthique",
+        "objectives": [
+          {
+            "code": "5.1",
+            "label": "Questionner les finalités éthiques"
+          },
+          {
+            "code": "5.2",
+            "label": "Développer une éthique du dialogue"
+          },
+          {
+            "code": "5.3",
+            "label": "Favoriser l’émergence et le partage de valeurs communes"
+          },
+          {
+            "code": "5.4",
+            "label": "Assurer la cohérence entre les actions et les valeurs"
+          }
+        ]
+      }
+    ]
+  },
+  "gouvernance": {
+    "label": "Gouvernance",
+    "order": 6,
+    "description": "Répondre à des besoins de participation, de démocratie et de transparence, ainsi que d'efficacité des institutions.",
+    "themes": [
+      {
+        "number": 1,
+        "label": "Institutions",
+        "objectives": [
+          {
+            "code": "1.1",
+            "label": "Améliorer l'efficacité, la responsabilité et l'inclusivité des institutions"
+          },
+          {
+            "code": "1.2",
+            "label": "Assurer l'accès et l'égalité face à la justice"
+          },
+          {
+            "code": "1.3",
+            "label": "Limiter les possibilités de corruption"
+          },
+          {
+            "code": "1.4",
+            "label": "Encourager la compétence"
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "label": "Instruments et processus",
+        "objectives": [
+          {
+            "code": "2.1",
+            "label": "Intégrer le développement durable dans les processus de gestion"
+          },
+          {
+            "code": "2.2",
+            "label": "Optimiser l’utilisation des instruments d'opérationnalisation du développement durable"
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "label": "Participation et citoyenneté",
+        "objectives": [
+          {
+            "code": "3.1",
+            "label": "Favoriser l’engagement et la mobilisation autour d’une vision commune"
+          },
+          {
+            "code": "3.2",
+            "label": "Favoriser la participation des parties prenantes"
+          },
+          {
+            "code": "3.3",
+            "label": "Assurer l’inclusivité des mécanismes participatifs"
+          },
+          {
+            "code": "3.4",
+            "label": "Reconnaitre la contribution des parties donnantes"
+          },
+          {
+            "code": "3.5",
+            "label": "Développer des partenariats"
+          },
+          {
+            "code": "3.6",
+            "label": "Considérer le niveau d’acceptabilité"
+          },
+          {
+            "code": "3.7",
+            "label": "Permettre l'exercice d'une citoyenneté active"
+          }
+        ]
+      },
+      {
+        "number": 4,
+        "label": "Subsidiarité",
+        "objectives": [
+          {
+            "code": "4.1",
+            "label": "Rapprocher la prise de décision des acteurs concernés"
+          },
+          {
+            "code": "4.2",
+            "label": "Favoriser la responsabilisation et l’imputabilité des acteurs"
+          },
+          {
+            "code": "4.3",
+            "label": "Assurer la cohérence entre les différents échelons de prise de décision"
+          }
+        ]
+      },
+      {
+        "number": 5,
+        "label": "Intégration locale",
+        "objectives": [
+          {
+            "code": "5.1",
+            "label": "Respecter le contexte légal"
+          },
+          {
+            "code": "5.2",
+            "label": "Inclure des enjeux locaux spécifiques"
+          },
+          {
+            "code": "5.3",
+            "label": "Assurer la cohérence systémique"
+          }
+        ]
+      },
+      {
+        "number": 6,
+        "label": "Information",
+        "objectives": [
+          {
+            "code": "6.1",
+            "label": "Assurer l'accès à une information préalable, pertinente, compréhensible et juste"
+          },
+          {
+            "code": "6.2",
+            "label": "Utiliser les mécanismes de communication appropriés"
+          },
+          {
+            "code": "6.3",
+            "label": "Fournir l'information de base aux décideurs"
+          },
+          {
+            "code": "6.4",
+            "label": "Mettre en place des mesures de suivi et d’évaluation"
+          },
+          {
+            "code": "6.5",
+            "label": "Rendre des comptes de façon transparente"
+          }
+        ]
+      },
+      {
+        "number": 7,
+        "label": "Innovation",
+        "objectives": [
+          {
+            "code": "7.1",
+            "label": "Optimiser le potentiel d'innovation et la diversification des options"
+          },
+          {
+            "code": "7.2",
+            "label": "Favoriser la recherche et le développement"
+          },
+          {
+            "code": "7.3",
+            "label": "Favoriser la mise en œuvre des solutions nouvelles"
+          },
+          {
+            "code": "7.4",
+            "label": "Favoriser l'accès aux connaissances et aux technologies"
+          },
+          {
+            "code": "7.5",
+            "label": "Gérer les risques associés aux nouvelles technologies"
+          }
+        ]
+      },
+      {
+        "number": 8,
+        "label": "Gestion du risque et résilience",
+        "objectives": [
+          {
+            "code": "8.1",
+            "label": "Identifier les risques"
+          },
+          {
+            "code": "8.2",
+            "label": "Appliquer le principe de prévention"
+          },
+          {
+            "code": "8.3",
+            "label": "Considérer la perception du risque"
+          },
+          {
+            "code": "8.4",
+            "label": "Favoriser une répartition équitable des risques"
+          },
+          {
+            "code": "8.5",
+            "label": "Prévoir des mesures d’adaptations aux changements"
+          }
+        ]
+      }
+    ]
+  }
+}
