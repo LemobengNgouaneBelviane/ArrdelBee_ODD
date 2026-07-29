@@ -86,7 +86,7 @@ class SDGSerializer(serializers.ModelSerializer):
 class SND30AxisSerializer(serializers.ModelSerializer):
     class Meta:
         model = SND30Axis
-        fields = ['id', 'number', 'name', 'description']
+        fields = ['id', 'number', 'name', 'description', 'pilier_number', 'pilier_title']
 
 
 class ProjectSDGAlignmentSerializer(serializers.ModelSerializer):

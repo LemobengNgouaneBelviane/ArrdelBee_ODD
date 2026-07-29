@@ -226,11 +226,12 @@ class ProjectViewSet(viewsets.ModelViewSet):
 
         if is_ctd and not is_arrdel:
             # Palier CTD : dossiers en attente de son contrôle + ce qu'il a déjà
-            # traité (visibilité sur son propre historique), borné à sa commune
-            # quand elle est renseignée sur son compte.
+            # traité (visibilité sur son propre historique, y compris une fois
+            # certifiés par l'ARRDEL — sinon le dossier disparaît de sa vue dès
+            # que l'ARRDEL termine), borné à sa commune quand elle est renseignée.
             qs = Project.objects.select_related('sector', 'commune').filter(
                 status__in=['submitted', 'controlling_ctd', 'validated_ctd',
-                            'rejected', 'needs_completion']
+                            'validated', 'rejected', 'needs_completion']
             )
             if user.commune_id:
                 qs = qs.filter(commune_id=user.commune_id)
@@ -488,33 +489,39 @@ class ProjectViewSet(viewsets.ModelViewSet):
             )
 
         project = self.get_object()
-        
+
         from .alignment_validator import (
             _suggest_odd, _tokenize, _project_text, _normalize,
             _SND30_AXES, _PCD_PRD_PRIORITIES, suggest_pcd_objectives,
+            RELEVANCE_THRESHOLD, MIN_INDICATORS,
         )
 
         proj_tokens = _tokenize(_project_text(project))
         proj_norm = _normalize(_project_text(project))
 
-        # 1. MAPPING ODD
+        # 1. MAPPING ODD — ne retient que les suggestions réellement pertinentes
+        # (même seuil que la validation manuelle) ; si trop peu franchissent le
+        # seuil, on complète avec les meilleures disponibles pour respecter le
+        # minimum requis par la validation de complétude.
         suggested_odds = _suggest_odd(proj_tokens, [], project=project)
-        odd_codes = [s['code'] for s in suggested_odds]
+        odd_codes = [s['code'] for s in suggested_odds if s['score_pct'] >= RELEVANCE_THRESHOLD * 100]
+        if len(odd_codes) < MIN_INDICATORS:
+            odd_codes = [s['code'] for s in suggested_odds[:MIN_INDICATORS]]
 
-        # 2. MAPPING SND30
+        # 2. MAPPING SND30 — uniquement les axes ayant au moins un mot-clé en
+        # commun avec le projet ; pas de sélection forcée sans lien thématique.
         candidates_snd30 = []
         for num, axis in _SND30_AXES.items():
             matches = [kw for kw in axis['keywords'] if kw in proj_norm]
             candidates_snd30.append((len(matches), num))
         candidates_snd30.sort(reverse=True)
         snd30_nums = [num for count, num in candidates_snd30[:2] if count > 0]
-        if not snd30_nums and candidates_snd30:
-            snd30_nums = [candidates_snd30[0][1]]
 
-        # 3. MAPPING PCD/PRD — utilise les vraies données PCD si disponibles
+        # 3. MAPPING PCD/PRD — utilise les vraies données PCD si disponibles,
+        # sinon les catégories génériques — jamais de sélection sans lien.
         pcd_suggestions = suggest_pcd_objectives(project)
         if pcd_suggestions:
-            pcd_ids = [s['priority_id'] for s in pcd_suggestions[:2]]
+            pcd_ids = [s['priority_id'] for s in pcd_suggestions[:2] if s['score_pct'] >= RELEVANCE_THRESHOLD * 100]
         else:
             candidates_pcd = []
             for pid, priority in _PCD_PRD_PRIORITIES.items():
@@ -522,8 +529,6 @@ class ProjectViewSet(viewsets.ModelViewSet):
                 candidates_pcd.append((len(matches), pid))
             candidates_pcd.sort(reverse=True)
             pcd_ids = [pid for count, pid in candidates_pcd[:2] if count > 0]
-            if not pcd_ids and candidates_pcd:
-                pcd_ids = [candidates_pcd[0][1]]
 
         # Persistence
         if odd_codes:
@@ -550,19 +555,24 @@ class ProjectViewSet(viewsets.ModelViewSet):
 
         project.refresh_from_db()
         project.update_scores(save=True)
-        if project.status in ('rejected', 'needs_completion', 'draft'):
-            old_status = project.status
-            if old_status != 'draft':
-                project.status = 'draft'
-                project.rejection_reason = ''
-                project.save(update_fields=['status', 'rejection_reason'])
-                ProjectWorkflowTrace.objects.create(
-                    project=project,
-                    actor=request.user,
-                    from_status=old_status,
-                    to_status='draft',
-                    comment="Alignement automatique effectué. Le projet doit être à nouveau soumis et validé.",
-                )
+        # Les alignements viennent d'être réécrits : quel que soit l'état du
+        # dossier (en circuit de validation ou déjà certifié), il doit repasser
+        # par une nouvelle soumission plutôt que de garder un statut obsolète
+        # sur des alignements qui ont changé sous ses pieds.
+        old_status = project.status
+        if old_status != 'draft':
+            project.status = 'draft'
+            project.rejection_reason = ''
+            project.is_published = False
+            project.published_at = None
+            project.save(update_fields=['status', 'rejection_reason', 'is_published', 'published_at'])
+            ProjectWorkflowTrace.objects.create(
+                project=project,
+                actor=request.user,
+                from_status=old_status,
+                to_status='draft',
+                comment="Alignement automatique effectué. Le projet doit être à nouveau soumis et validé.",
+            )
 
         return Response({'status': 'auto_aligned'}, status=status.HTTP_200_OK)
     @action(detail=True, methods=['get'])

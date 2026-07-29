@@ -90,19 +90,75 @@ class Command(BaseCommand):
 
     def import_snd30(self):
         self.stdout.write('Importing SND30 Axes...')
-        
+
+        PILIER1 = "Transformation structurelle de l'économie"
+        PILIER2 = "Développement du capital humain et du bien-être"
+        PILIER3 = "Promotion de l'emploi et de l'insertion économique"
+        PILIER4 = "Gouvernance, décentralisation et gestion stratégique de l'État"
+
+        # Piliers et axes d'intervention officiels de la SND30 2020-2030.
+        # Le pilier 4 ne dispose pas d'une liste d'axes distincte dans le
+        # document source (erreur de mise en page dupliquant le pilier 3) :
+        # il est donc représenté par un axe unique correspondant à son intitulé.
         AXES = [
-            (1, 'Renforcement des institutions démocratiques', 'Gouvernance démocratique et développement institutionnel'),
-            (2, 'Développement équitable et inclusif', 'Réduction des inégalités et inclusion sociale'),
-            (3, 'Croissance durable et compétitivité', 'Croissance économique et développement du secteur privé'),
-            (4, 'Capital naturel et résilience climatique', 'Protection environnementale et action climatique'),
-            (5, 'Paix et sécurité', 'Cohésion sociale et prévention des conflits'),
+            (1, 1, PILIER1, "Développement des industries et des services",
+             "Promotion de l'industrie manufacturière et rattrapage technologique ; "
+             "filières prioritaires : énergie, agro-industrie, numérique, forêt-bois, "
+             "textile-confection-cuir, mines-métallurgie, hydrocarbures, chimie-pharmacie, "
+             "construction-services"),
+            (2, 1, PILIER1, "Développement de la productivité et de la production agricoles",
+             "Amélioration des rendements agricoles, de la production vivrière et de l'agro-industrie"),
+            (3, 1, PILIER1, "Développement des infrastructures productives",
+             "Infrastructures de transport, d'énergie et de numérique au service de la production"),
+            (4, 1, PILIER1, "Intégration régionale et facilitation des échanges",
+             "Renforcement des échanges commerciaux régionaux et de l'intégration économique sous-régionale"),
+            (5, 1, PILIER1, "Dynamisation du secteur privé",
+             "Amélioration du climat des affaires et soutien à l'investissement privé"),
+            (6, 1, PILIER1, "Préservation de l'environnement et protection de la nature",
+             "Gestion durable des ressources naturelles et lutte contre les changements climatiques"),
+            (7, 1, PILIER1, "Transformation du système financier",
+             "Modernisation du secteur financier et amélioration de l'accès au financement"),
+
+            (8, 2, PILIER2, "Amélioration de l'éducation, formation et employabilité",
+             "Accès à une éducation de qualité et adéquation formation-emploi"),
+            (9, 2, PILIER2, "Santé et nutrition",
+             "Amélioration de l'état de santé et nutritionnel des populations, couverture santé universelle"),
+            (10, 2, PILIER2, "Promotion de l'accès aux facilités sociales de base",
+             "Accès à l'eau, à l'assainissement, au logement et aux services sociaux essentiels"),
+            (11, 2, PILIER2, "Amélioration de la protection sociale",
+             "Renforcement des dispositifs de protection sociale et d'assistance aux populations vulnérables"),
+            (12, 2, PILIER2, "Promotion de la recherche-développement et de l'innovation",
+             "Développement de la recherche scientifique et de l'innovation technologique"),
+
+            (13, 3, PILIER3, "Promotion de l'emploi dans les projets d'investissement public",
+             "Création d'emplois locaux à travers les projets d'investissement public"),
+            (14, 3, PILIER3, "Amélioration de la productivité agricole, de l'emploi et des revenus en milieu rural",
+             "Développement économique rural et amélioration des revenus agricoles"),
+            (15, 3, PILIER3, "Promotion de la migration de l'informel vers le formel",
+             "Formalisation des activités économiques informelles"),
+            (16, 3, PILIER3, "Création et préservation de l'emploi décent dans les grandes entreprises",
+             "Emploi décent et stable dans le secteur formel"),
+            (17, 3, PILIER3, "Mise en adéquation formation-emploi et insertion professionnelle",
+             "Adaptation des formations aux besoins du marché du travail"),
+            (18, 3, PILIER3, "Régulation du marché du travail",
+             "Encadrement et régulation des relations et conditions de travail"),
+
+            (19, 4, PILIER4, "Gouvernance, décentralisation et gestion stratégique de l'État",
+             "Renforcement de la gouvernance publique, décentralisation et transferts de compétences aux CTD"),
         ]
 
-        for num, name, desc in AXES:
+        for num, pilier_number, pilier_title, name, desc in AXES:
             SND30Axis.objects.update_or_create(
                 number=num,
-                defaults={'name': name, 'description': desc}
+                defaults={
+                    'name': name, 'description': desc,
+                    'pilier_number': pilier_number, 'pilier_title': pilier_title,
+                }
             )
+
+        # Retire les anciens axes (1 à 5, obsolètes) si l'ancien jeu de données
+        # avait déjà été importé et que leur numéro ne correspond plus à un axe valide.
+        valid_numbers = [a[0] for a in AXES]
+        SND30Axis.objects.exclude(number__in=valid_numbers).delete()
 
         self.stdout.write(self.style.SUCCESS('SND30 Axes imported successfully'))

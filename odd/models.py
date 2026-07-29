@@ -172,9 +172,11 @@ class ProjectSDGAlignment(models.Model):
 
 
 class SND30Axis(models.Model):
-    number      = models.IntegerField(unique=True)
-    name        = models.CharField(max_length=255)
-    description = models.TextField()
+    number       = models.IntegerField(unique=True)
+    name         = models.CharField(max_length=255)
+    description  = models.TextField()
+    pilier_number = models.IntegerField(default=1)
+    pilier_title  = models.CharField(max_length=255, default='')
 
     def __str__(self):
         return f"Axe {self.number}: {self.name}"

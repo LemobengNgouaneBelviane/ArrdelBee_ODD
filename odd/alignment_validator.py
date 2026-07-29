@@ -26,50 +26,110 @@ _STOPWORDS = {
 }
 
 # ── Référentiels SND30 et PCD/PRD ─────────────────────────────────────────────
+# Piliers et axes d'intervention officiels de la SND30 2020-2030 (cf. « La SND30
+# en 30 points », MINEPAT). Le pilier 4 ne dispose pas d'une liste d'axes propre
+# dans le document source (section dupliquant par erreur celle du pilier 3) : il
+# est représenté ici par un axe unique correspondant à son intitulé.
+_PILIER1 = "Transformation structurelle de l'économie"
+_PILIER2 = "Développement du capital humain et du bien-être"
+_PILIER3 = "Promotion de l'emploi et de l'insertion économique"
+_PILIER4 = "Gouvernance, décentralisation et gestion stratégique de l'État"
+
 _SND30_AXES = {
     1: {
-        'title': 'Renforcement des institutions démocratiques',
-        'desc': 'Gouvernance démocratique et développement institutionnel, administration publique, décentralisation',
-        'keywords': [
-            'gouvernance', 'institution', 'democratique', 'administration', 'etat',
-            'decentralisation', 'transparence', 'corruption', 'droit', 'justice',
-            'election', 'municipal', 'communal', 'mairie', 'conseil',
-        ],
+        'title': 'Développement des industries et des services', 'pilier': _PILIER1,
+        'desc': "Promotion de l'industrie manufacturière et rattrapage technologique ; filières prioritaires (énergie, agro-industrie, numérique, forêt-bois, textile, mines, hydrocarbures, chimie-pharmacie, construction-services)",
+        'keywords': ['industrie', 'usine', 'manufacture', 'production', 'transformation', 'fabrication', 'filiere', 'technologie', 'numerique', 'manufacturier'],
     },
     2: {
-        'title': 'Développement équitable et inclusif',
-        'desc': 'Réduction des inégalités, inclusion sociale, accès aux services de base',
-        'keywords': [
-            'inegalite', 'inclusion', 'social', 'pauvrete', 'genre', 'femme',
-            'jeunesse', 'jeune', 'handicap', 'vulnerable', 'equite', 'cohesion',
-            'acces', 'service', 'education', 'formation', 'sante', 'scolarisation',
-        ],
+        'title': 'Développement de la productivité et de la production agricoles', 'pilier': _PILIER1,
+        'desc': "Amélioration des rendements agricoles, de la production vivrière et de l'agro-industrie",
+        'keywords': ['agriculture', 'agricole', 'rendement', 'culture', 'elevage', 'semence', 'engrais', 'recolte', 'vivrier', 'exploitation', 'ferme'],
     },
     3: {
-        'title': 'Croissance durable et compétitivité',
-        'desc': 'Croissance économique, emploi, secteur privé, agriculture, industrie',
-        'keywords': [
-            'economie', 'croissance', 'emploi', 'entreprise', 'industrie',
-            'agriculture', 'commerce', 'investissement', 'productivite',
-            'competitivite', 'revenu', 'marche', 'elevage', 'agro', 'pme',
-        ],
+        'title': 'Développement des infrastructures productives', 'pilier': _PILIER1,
+        'desc': "Infrastructures de transport, d'énergie et de numérique au service de la production",
+        'keywords': ['infrastructure', 'route', 'transport', 'energie', 'port', 'aeroport', 'chemin', 'reseau', 'electrification', 'barrage', 'pont'],
     },
     4: {
-        'title': 'Capital naturel et résilience climatique',
-        'desc': 'Protection environnementale, action climatique, énergie, gestion de l\'eau',
-        'keywords': [
-            'environnement', 'climat', 'foret', 'biodiversite', 'eau', 'energie',
-            'pollution', 'dechet', 'ecosysteme', 'resilience', 'carbone',
-            'nature', 'reboisement', 'solaire', 'hydraulique', 'renouvelable',
-        ],
+        'title': "Intégration régionale et facilitation des échanges", 'pilier': _PILIER1,
+        'desc': "Renforcement des échanges commerciaux régionaux et de l'intégration économique sous-régionale",
+        'keywords': ['commerce', 'echange', 'exportation', 'importation', 'frontiere', 'regional', 'integration', 'douane', 'marche', 'commercial'],
     },
     5: {
-        'title': 'Paix et sécurité',
-        'desc': 'Cohésion sociale, prévention des conflits, stabilité',
-        'keywords': [
-            'paix', 'securite', 'conflit', 'cohesion', 'violence', 'refugie',
-            'stabilite', 'reconciliation', 'prevention', 'communautaire', 'deplacement',
-        ],
+        'title': 'Dynamisation du secteur privé', 'pilier': _PILIER1,
+        'desc': "Amélioration du climat des affaires et soutien à l'investissement privé",
+        'keywords': ['entreprise', 'investissement', 'prive', 'affaires', 'pme', 'entrepreneuriat', 'competitivite', 'investisseur', 'societe'],
+    },
+    6: {
+        'title': "Préservation de l'environnement et protection de la nature", 'pilier': _PILIER1,
+        'desc': "Gestion durable des ressources naturelles et lutte contre les changements climatiques",
+        'keywords': ['environnement', 'foret', 'biodiversite', 'climat', 'pollution', 'dechet', 'ecosysteme', 'reboisement', 'nature', 'ressource'],
+    },
+    7: {
+        'title': 'Transformation du système financier', 'pilier': _PILIER1,
+        'desc': "Modernisation du secteur financier et amélioration de l'accès au financement",
+        'keywords': ['banque', 'financement', 'credit', 'microfinance', 'epargne', 'assurance', 'bourse', 'financier', 'pret'],
+    },
+    8: {
+        'title': "Amélioration de l'éducation, formation et employabilité", 'pilier': _PILIER2,
+        'desc': "Accès à une éducation de qualité et adéquation formation-emploi",
+        'keywords': ['education', 'ecole', 'formation', 'employabilite', 'competence', 'alphabetisation', 'enseignement', 'apprentissage', 'scolarisation', 'universite'],
+    },
+    9: {
+        'title': 'Santé et nutrition', 'pilier': _PILIER2,
+        'desc': "Amélioration de l'état de santé et nutritionnel des populations, couverture santé universelle",
+        'keywords': ['sante', 'hopital', 'nutrition', 'maladie', 'vaccination', 'soins', 'medecin', 'dispensaire', 'maternite'],
+    },
+    10: {
+        'title': "Promotion de l'accès aux facilités sociales de base", 'pilier': _PILIER2,
+        'desc': "Accès à l'eau, à l'assainissement, au logement et aux services sociaux essentiels",
+        'keywords': ['eau', 'assainissement', 'logement', 'potable', 'latrine', 'habitat', 'hygiene', 'adduction'],
+    },
+    11: {
+        'title': 'Amélioration de la protection sociale', 'pilier': _PILIER2,
+        'desc': "Renforcement des dispositifs de protection sociale et d'assistance aux populations vulnérables",
+        'keywords': ['protection', 'social', 'vulnerable', 'assistance', 'handicap', 'indigent', 'filet'],
+    },
+    12: {
+        'title': 'Promotion de la recherche-développement et de l\'innovation', 'pilier': _PILIER2,
+        'desc': "Développement de la recherche scientifique et de l'innovation technologique",
+        'keywords': ['recherche', 'innovation', 'technologie', 'laboratoire', 'scientifique', 'brevet', 'incubateur'],
+    },
+    13: {
+        'title': "Promotion de l'emploi dans les projets d'investissement public", 'pilier': _PILIER3,
+        'desc': "Création d'emplois locaux à travers les projets d'investissement public",
+        'keywords': ['emploi', 'investissement', 'chantier', 'recrutement', 'travailleur', 'embauche', 'main'],
+    },
+    14: {
+        'title': "Amélioration de la productivité agricole, de l'emploi et des revenus en milieu rural", 'pilier': _PILIER3,
+        'desc': "Développement économique rural et amélioration des revenus agricoles",
+        'keywords': ['rural', 'agricole', 'revenu', 'paysan', 'cooperative', 'campagne', 'agriculteur'],
+    },
+    15: {
+        'title': "Promotion de la migration de l'informel vers le formel", 'pilier': _PILIER3,
+        'desc': "Formalisation des activités économiques informelles",
+        'keywords': ['informel', 'formel', 'formalisation', 'artisan', 'micro'],
+    },
+    16: {
+        'title': "Création et préservation de l'emploi décent dans les grandes entreprises", 'pilier': _PILIER3,
+        'desc': "Emploi décent et stable dans le secteur formel",
+        'keywords': ['emploi', 'decent', 'entreprise', 'salarie', 'travail', 'contrat'],
+    },
+    17: {
+        'title': "Mise en adéquation formation-emploi et insertion professionnelle", 'pilier': _PILIER3,
+        'desc': "Adaptation des formations aux besoins du marché du travail",
+        'keywords': ['formation', 'insertion', 'professionnelle', 'stage', 'apprentissage', 'orientation', 'qualification'],
+    },
+    18: {
+        'title': 'Régulation du marché du travail', 'pilier': _PILIER3,
+        'desc': "Encadrement et régulation des relations et conditions de travail",
+        'keywords': ['travail', 'syndicat', 'chomage', 'contrat', 'reglementation', 'inspection'],
+    },
+    19: {
+        'title': 'Gouvernance, décentralisation et gestion stratégique de l\'État', 'pilier': _PILIER4,
+        'desc': "Renforcement de la gouvernance publique, décentralisation et transferts de compétences aux CTD",
+        'keywords': ['gouvernance', 'decentralisation', 'institution', 'administration', 'etat', 'transparence', 'commune', 'collectivite', 'maire', 'conseil'],
     },
 }
 
